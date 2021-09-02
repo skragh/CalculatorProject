@@ -16,7 +16,7 @@ namespace Calculator.Unit.Test
         public void Add_TwoPlusTwo_AssertFour()
         {
             double result = uut.Add(2.0, 2.0);
-            Assert.True(result==4.0);
+            Assert.That(result, Is.EqualTo(4));
         }
 
         [Test]
