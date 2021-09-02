@@ -47,6 +47,10 @@ namespace Calculator.Unit.Test
             Assert.That(result,Is.EqualTo(-8.0).Within(0.0001));
         }
 
+        //Multiply
+
+        //Exponent
+
         //dividorTest
         [Test]
         public void Divide_PositiveFromPositive_AssertResultCorrect()
@@ -54,5 +58,40 @@ namespace Calculator.Unit.Test
             double result = uut.Divide(9, 3);
             Assert.That(result, Is.EqualTo(3));
         }
+
+//Accumulator tests
+        [Test]
+        public void Accumulator_RetrieveAfterAddition()
+        {
+            uut.Add(2.1, 2.3);
+            Assert.That(uut.Accumulator, Is.EqualTo(4.4).Within(0.0001));
+        }
+
+        [Test]
+        public void Accumulator_RetrieveAfterSubtraction()
+        {
+            uut.Subtract(15, 16.7);
+            Assert.That(uut.Accumulator, Is.EqualTo(-1.7).Within(0.0001));
+        }
+        [Test]
+        public void Accumulator_RetrieveAfterMultiplication()
+        {
+            uut.Multiply(-3, -2);
+            Assert.That(uut.Accumulator, Is.EqualTo(6).Within(0.0001));
+        }
+        [Test]
+        public void Accumulator_RetrieveAfterExponent()
+        {
+            uut.Power(2, 8);
+            Assert.That(uut.Accumulator, Is.EqualTo(256).Within(0.0001));
+        }
+        [Test]
+        public void Accumulator_RetrieveAfterDivision()
+        {
+            uut.Divide(5, 2);
+            Assert.That(uut.Accumulator, Is.EqualTo(2.5).Within(0.0001));
+        }
+
+
     }
 }
