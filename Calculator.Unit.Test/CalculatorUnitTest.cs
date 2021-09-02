@@ -46,5 +46,13 @@ namespace Calculator.Unit.Test
             double result = uut.Subtract(-4.3, 3.7);
             Assert.True(result==-8.0);
         }
+
+        //dividorTest
+        [Test]
+        public void Divide_PositiveFromPositive_AssertResultCorrect()
+        {
+            double result = uut.Divide(9, 3);
+            Assert.That(result, Is.EqualTo(3));
+        }
     }
 }
