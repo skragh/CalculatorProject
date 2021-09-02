@@ -92,6 +92,20 @@ namespace Calculator.Unit.Test
             Assert.That(uut.Accumulator, Is.EqualTo(2.5).Within(0.0001));
         }
 
+        [Test]
+        public void Accumulator_StartsAtZero()
+        {
+            Assert.That(uut.Accumulator,Is.Zero);
+        }
+
+        [Test]
+        public void Accumulator_ClearAfterAddition()
+        {
+            uut.Add(5, 4);
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.Zero);
+        }
+
 
     }
 }
