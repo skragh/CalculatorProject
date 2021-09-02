@@ -48,7 +48,37 @@ namespace Calculator.Unit.Test
             Assert.That(result,Is.EqualTo(-8.0).Within(0.0001));
         }
 
-        //Multiply
+        
+        [Test]
+        public void Multiply_PositiveAndPositive()
+        {
+            double result = uut.Multiply(4, 5);
+            Assert.That(result, Is.EqualTo(20).Within(0.0001));
+        }
+
+        [Test]
+        public void Multiply_PositiveAndNegative()
+        {
+            double result = uut.Multiply(4, -5);
+            Assert.That(result, Is.EqualTo(-20).Within(0.0001));
+        }
+
+
+        [Test]
+        public void Multiply_NegativeAndPositive()
+        {
+            double result = uut.Multiply(-4, 5);
+            Assert.That(result, Is.EqualTo(-20).Within(0.0001));
+        }
+
+
+        [Test]
+        public void Multiply_NegativeAndNegative()
+        {
+            double result = uut.Multiply(-4, -5);
+            Assert.That(result, Is.EqualTo(20).Within(0.0001));
+        }
+
 
         #region Power
 
