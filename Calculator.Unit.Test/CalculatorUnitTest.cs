@@ -30,7 +30,7 @@ namespace Calculator.Unit.Test
         public void Subtract_SmallFromBig_AssertResultCorrect()
         {
             double result = uut.Subtract(4.3, 3.7);
-            Assert.AreEqual(0.6,result,0.001);
+            Assert.That(result, Is.EqualTo(0.6).Within(0.0001));
         }
 
         [Test]
