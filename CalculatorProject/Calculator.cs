@@ -32,6 +32,11 @@ namespace CalculatorProject
             return Accumulator;
         }
 
+        public double Divide(double dividend, double divisor)
+        {
+            return dividend / divisor;
+        }
+
         public double Accumulator { get; private set; }
     }
 }
