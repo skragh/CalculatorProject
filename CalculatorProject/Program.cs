@@ -6,8 +6,8 @@ namespace CalculatorProject
     {
         static void Main(string[] args)
         {
-            double a = 0;
-            double b = -3;
+            double a = 2.5;
+            double b = 3.6;
             Calculator calc = new Calculator();
 
             Console.WriteLine($"Testing calculator with values: a:{a}  b:{b}");

@@ -80,8 +80,6 @@ namespace Calculator.Unit.Test
         }
 
 
-        #region Power
-
         [Test]
         public void Power_PositiveX_PositiveExp()
         {
