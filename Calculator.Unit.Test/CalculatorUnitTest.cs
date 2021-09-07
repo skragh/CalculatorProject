@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using CalculatorProject;
 
@@ -47,6 +48,108 @@ namespace Calculator.Unit.Test
             Assert.That(result,Is.EqualTo(-8.0).Within(0.0001));
         }
 
+        
+        [Test]
+        public void Multiply_PositiveAndPositive()
+        {
+            double result = uut.Multiply(4, 5);
+            Assert.That(result, Is.EqualTo(20).Within(0.0001));
+        }
+
+        [Test]
+        public void Multiply_PositiveAndNegative()
+        {
+            double result = uut.Multiply(4, -5);
+            Assert.That(result, Is.EqualTo(-20).Within(0.0001));
+        }
+
+
+        [Test]
+        public void Multiply_NegativeAndPositive()
+        {
+            double result = uut.Multiply(-4, 5);
+            Assert.That(result, Is.EqualTo(-20).Within(0.0001));
+        }
+
+
+        [Test]
+        public void Multiply_NegativeAndNegative()
+        {
+            double result = uut.Multiply(-4, -5);
+            Assert.That(result, Is.EqualTo(20).Within(0.0001));
+        }
+
+
+        #region Power
+
+        [Test]
+        public void Power_PositiveX_PositiveExp()
+        {
+            double result = uut.Power(2, 4);
+            Assert.That(result, Is.EqualTo(16).Within(0.0001));
+        }
+        
+        [Test]
+        public void Power_NegativeX_PositiveEvenExp()
+        {
+            double result = uut.Power(-2, 4);
+            Assert.That(result, Is.EqualTo(16).Within(0.0001));
+        }
+
+        [Test]
+        public void Power_NegativeX_PositiveUnevenExp()
+        {
+            double result = uut.Power(-2, 3);
+            Assert.That(result, Is.EqualTo(-8).Within(0.0001));
+        }
+
+
+        [Test]
+        public void Power_PositiveX_NegativeExp()
+        {
+            double result = uut.Power(2, -4);
+            Assert.That(result, Is.EqualTo(0.0625).Within(0.0001));
+        }
+
+        [Test]
+        public void Power_NegativeX_NegativeExp()
+        {
+            double result = uut.Power(-2, -4);
+            Assert.That(result, Is.EqualTo(0.0625).Within(0.0001));
+        }
+
+        [Test]
+        public void Power_ZeroX_PositiveExp_AssertZero()
+        {
+            double result = uut.Power(0, 4);
+            Assert.That(result, Is.Zero);
+        }
+
+        [Test]
+        public void Power_ZeroX_NegativeExp_AssertError()
+        {
+            Assert.Throws<DivideByZeroException>(() => uut.Power(0,-4),"Divided by zero");
+        }
+
+        [Test]
+        public void Power_ZeroX_ZeroExp_AssertOne()
+        {
+            double result = uut.Power(0, 0);
+            Assert.That(result, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Power_PositiveX_ZeroExp_AssertOne()
+        {
+            double result = uut.Power(2, 0);
+            Assert.That(result, Is.EqualTo(1).Within(0.0001));
+        }
+        [Test]
+        public void Power_NegativeX_ZeroExp_AssertOne()
+        {
+            double result = uut.Power(-2, 0);
+            Assert.That(result, Is.EqualTo(1).Within(0.0001));
+        }
         //Multiply
         [Test]
         public void Multiply_PositiveWithPositive_AssertValueCorrect()
@@ -85,45 +188,45 @@ namespace Calculator.Unit.Test
 
 //Accumulator tests
         [Test]
-        public void Accumulator_RetrieveAfterAddition()
+        public void Acc_RetrieveAfterAddition()
         {
             uut.Add(2.1, 2.3);
             Assert.That(uut.Accumulator, Is.EqualTo(4.4).Within(0.0001));
         }
 
         [Test]
-        public void Accumulator_RetrieveAfterSubtraction()
+        public void Acc_RetrieveAfterSubtraction()
         {
             uut.Subtract(15, 16.7);
             Assert.That(uut.Accumulator, Is.EqualTo(-1.7).Within(0.0001));
         }
         [Test]
-        public void Accumulator_RetrieveAfterMultiplication()
+        public void Acc_RetrieveAfterMultiplication()
         {
             uut.Multiply(-3, -2);
             Assert.That(uut.Accumulator, Is.EqualTo(6).Within(0.0001));
         }
         [Test]
-        public void Accumulator_RetrieveAfterExponent()
+        public void Acc_RetrieveAfterExponent()
         {
             uut.Power(2, 8);
             Assert.That(uut.Accumulator, Is.EqualTo(256).Within(0.0001));
         }
         [Test]
-        public void Accumulator_RetrieveAfterDivision()
+        public void Acc_RetrieveAfterDivision()
         {
             uut.Divide(5, 2);
             Assert.That(uut.Accumulator, Is.EqualTo(2.5).Within(0.0001));
         }
 
         [Test]
-        public void Accumulator_StartsAtZero()
+        public void Acc_StartsAtZero()
         {
             Assert.That(uut.Accumulator,Is.Zero);
         }
 
         [Test]
-        public void Accumulator_ClearAfterAddition()
+        public void Acc_ClearAfterAddition()
         {
             uut.Add(5, 4);
             uut.Clear();

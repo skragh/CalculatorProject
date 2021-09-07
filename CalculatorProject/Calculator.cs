@@ -28,6 +28,9 @@ namespace CalculatorProject
 
         public double Power(double x, double exp)
         {
+            if (x == 0 && exp < 0)
+                throw new DivideByZeroException();
+
             Accumulator = Math.Pow(x, exp);
             return Accumulator;
         }
