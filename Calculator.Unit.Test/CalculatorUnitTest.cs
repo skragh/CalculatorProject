@@ -23,7 +23,7 @@ namespace Calculator.Unit.Test
         [Test]
         public void Add_TwoDecimals_AssertTrue()
         {
-            double result = uut.Add(2.3 ,4.1);
+            double result = uut.Add(2.3, 4.1);
             Assert.That(result, Is.EqualTo(6.4).Within(0.0001));
         }
 

@@ -50,7 +50,8 @@ namespace CalculatorProject
 
         public double Add(double addNumber)
         {
-            return addNumber + this.Accumulator;
+            Accumulator = addNumber + Accumulator;
+            return Accumulator;
         }
     }
 }
