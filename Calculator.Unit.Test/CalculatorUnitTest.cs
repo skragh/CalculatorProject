@@ -230,7 +230,5 @@ namespace Calculator.Unit.Test
             uut.Clear();
             Assert.That(uut.Accumulator, Is.Zero);
         }
-
-
     }
 }
