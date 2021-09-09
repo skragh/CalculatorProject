@@ -13,6 +13,7 @@ namespace Calculator.Unit.Test
             uut = new CalculatorProject.Calculator();
         }
 
+        #region AdditionTest
         [Test]
         public void Add_TwoPlusTwo_AssertFour()
         {
@@ -26,7 +27,9 @@ namespace Calculator.Unit.Test
             double result = uut.Add(2.3, 4.1);
             Assert.That(result, Is.EqualTo(6.4).Within(0.0001));
         }
+        #endregion
 
+        #region SubtractionTest
         [Test]
         public void Subtract_SmallFromBig_AssertResultCorrect()
         {
@@ -47,39 +50,9 @@ namespace Calculator.Unit.Test
             double result = uut.Subtract(-4.3, 3.7);
             Assert.That(result,Is.EqualTo(-8.0).Within(0.0001));
         }
+#endregion
 
-        
-        [Test]
-        public void Multiply_PositiveAndPositive()
-        {
-            double result = uut.Multiply(4, 5);
-            Assert.That(result, Is.EqualTo(20).Within(0.0001));
-        }
-
-        [Test]
-        public void Multiply_PositiveAndNegative()
-        {
-            double result = uut.Multiply(4, -5);
-            Assert.That(result, Is.EqualTo(-20).Within(0.0001));
-        }
-
-
-        [Test]
-        public void Multiply_NegativeAndPositive()
-        {
-            double result = uut.Multiply(-4, 5);
-            Assert.That(result, Is.EqualTo(-20).Within(0.0001));
-        }
-
-
-        [Test]
-        public void Multiply_NegativeAndNegative_ReturnsPositive()
-        {
-            double result = uut.Multiply(-4, -5);
-            Assert.That(result, Is.EqualTo(20).Within(0.0001));
-        }
-
-        #region power
+        #region PowerTest
         [TestCase(2,4,16)]
         [TestCase(-2, 4, 16)]
         [TestCase(-2, 3, -8)]
@@ -117,8 +90,9 @@ namespace Calculator.Unit.Test
             Assert.That(result, Is.EqualTo(1));
         }
 
-#endregion
-        //Multiply
+        #endregion
+
+        #region MultiplyTest
         [Test]
         public void Multiply_PositiveWithPositive_AssertValueCorrect()
         {
@@ -126,31 +100,32 @@ namespace Calculator.Unit.Test
             Assert.That(result, Is.EqualTo(22.0).Within(0.00001));
         }
 
+        [Test]
         public void Multiply_PositiveWithNegative_AssertValueCorrect()
         {
             double result = uut.Multiply(2.5, -6);
-            Assert.That(result, Is.EqualTo(-22.0).Within(0.00001));
+            Assert.That(result, Is.EqualTo(-15.0).Within(0.00001));
         }
 
+        [Test]
         public void Multiply_NegativeWithNegative_AssertValueCorrect()
         {
             double result = uut.Multiply(-30, -1.2);
-            Assert.That(result, Is.EqualTo(35.0).Within(0.00001));
+            Assert.That(result, Is.EqualTo(36.0).Within(0.00001));
         }
+        #endregion
 
-
-        //divideTest
+        #region DivisionTest
         [Test]
         public void Divide_PositiveFromPositive_AssertResultCorrect()
         {
             double result = uut.Divide(9, 3);
             Assert.That(result, Is.EqualTo(3));
         }
-
-        //Accumulator tests
+#endregion
 
         #region AccumulatorTest
-        
+
         [Test]
         public void Acc_RetrieveAfterAddition()
         {
