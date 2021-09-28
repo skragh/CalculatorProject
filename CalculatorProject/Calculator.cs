@@ -47,5 +47,11 @@ namespace CalculatorProject
         {
             Accumulator = 0;
         }
+
+        public double Add(double addNumber)
+        {
+            Accumulator = addNumber + Accumulator;
+            return Accumulator;
+        }
     }
 }
