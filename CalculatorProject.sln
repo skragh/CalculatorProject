@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorProject", "CalculatorProject\CalculatorProject.csproj", "{7940B4F3-D3B8-4CA3-AE96-86683554B61F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Unit.Test", "Calculator.Unit.Test\Calculator.Unit.Test.csproj", "{82CAED29-7830-4226-8135-3592B7E2FD66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Unit.Test", "Calculator.Unit.Test\Calculator.Unit.Test.csproj", "{82CAED29-7830-4226-8135-3592B7E2FD66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF0B1E48-59F1-425D-A2A4-6D51E5CF2E13}"
+	ProjectSection(SolutionItems) = preProject
+		dotCoverCoverageConfigCore.xml = dotCoverCoverageConfigCore.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
